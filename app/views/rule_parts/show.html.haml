@@ -1,0 +1,15 @@
+- title "Rule Part"
+
+%p
+  %strong Fact:
+  = @rule_part.fact.description
+%p
+  %strong Hypothesis:
+  = @rule_part.hypothesis.description
+
+%p
+  = link_to "Edit", edit_rule_part_path(@rule_part)
+  |
+  = link_to "Destroy", @rule_part, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", rule_parts_path

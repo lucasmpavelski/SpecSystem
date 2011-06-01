@@ -1,0 +1,12 @@
+= form_for @rule_part do |f|
+  = f.error_messages
+  %p
+    = f.label :fact
+    %br
+    = f.collection_select :fact_id, Fact.all, :id, :description
+  %p
+    = f.label :hypothesis
+    %br
+    = f.collection_select :hypothesis_id, Hypothesis.all, :id, :description
+  %p
+    = f.submit

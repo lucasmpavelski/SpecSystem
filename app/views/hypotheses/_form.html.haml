@@ -1,0 +1,15 @@
+= form_for @hypothesis do |f|
+  = f.error_messages
+
+  %p
+    = f.fields_for :rule_parts do |rp|
+      = rp.label :fact
+      %br
+      = rp.collection_select :fact_id, Fact.all, :id, :description
+      =# rp.collection_select :hypothesis_id, Hypothesis.all, :id, :description
+    %br
+
+  %p
+    = f.text_field :description
+  %p
+    = f.submit

@@ -1,0 +1,15 @@
+- title "Rule Parts"
+
+%table
+  %tr
+    %th Fact
+    %th Hypothesis
+  - for rule_part in @rule_parts
+    %tr
+      %td= rule_part.fact
+      %td= rule_part.hypothesis
+      %td= link_to 'Show', rule_part
+      %td= link_to 'Edit', edit_rule_part_path(rule_part)
+      %td= link_to 'Destroy', rule_part, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Rule Part", new_rule_part_path

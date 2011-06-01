@@ -1,0 +1,13 @@
+- title "Facts"
+
+%table
+  %tr
+    %th Description
+  - for fact in @facts
+    %tr
+      %td= fact.description
+      %td= link_to 'Show', fact
+      %td= link_to 'Edit', edit_fact_path(fact)
+      %td= link_to 'Destroy', fact, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Fact", new_fact_path

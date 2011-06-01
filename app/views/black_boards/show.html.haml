@@ -1,0 +1,12 @@
+- title "Black Board"
+
+%p
+  %strong Name:
+  = @black_board.name
+
+%p
+  = link_to "Edit", edit_black_board_path(@black_board)
+  |
+  = link_to "Destroy", @black_board, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", black_boards_path

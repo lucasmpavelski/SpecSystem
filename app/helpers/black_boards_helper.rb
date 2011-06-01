@@ -1,0 +1,2 @@
+module BlackBoardsHelper
+end

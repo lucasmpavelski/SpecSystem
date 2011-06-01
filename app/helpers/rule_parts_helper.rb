@@ -1,0 +1,2 @@
+module RulePartsHelper
+end

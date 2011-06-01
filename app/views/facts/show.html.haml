@@ -1,0 +1,12 @@
+- title "Fact"
+
+%p
+  %strong Description:
+  = @fact.description
+
+%p
+  = link_to "Edit", edit_fact_path(@fact)
+  |
+  = link_to "Destroy", @fact, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", facts_path

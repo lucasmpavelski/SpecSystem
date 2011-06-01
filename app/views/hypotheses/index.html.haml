@@ -1,0 +1,13 @@
+- title "Hypotheses"
+
+%table
+  %tr
+    %th Description
+  - for hypothesis in @hypotheses
+    %tr
+      %td= hypothesis.description
+      %td= link_to 'Show', hypothesis
+      %td= link_to 'Edit', edit_hypothesis_path(hypothesis)
+      %td= link_to 'Destroy', hypothesis, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Hypothesis", new_hypothesis_path
