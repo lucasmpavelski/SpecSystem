@@ -1,12 +1,23 @@
-- title "Fact"
+- title "Fato"
 
 %p
-  %strong Description:
+  %h2 Perguntas
+%p
+  %ol
+  - for qst in @fact.questions
+    %li= qst.description
+
+%p
+  %h2 Fato
+%p
   = @fact.description
+%p
+
+%br
 
 %p
-  = link_to "Edit", edit_fact_path(@fact)
+  = link_to "Editar", edit_fact_path(@fact)
   |
-  = link_to "Destroy", @fact, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Remover", @fact, :confirm => 'Tem certeza que deseja remover?', :method => :delete
   |
-  = link_to "View All", facts_path
+  = link_to "Ver todos", facts_path

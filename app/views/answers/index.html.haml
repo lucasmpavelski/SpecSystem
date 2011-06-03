@@ -1,0 +1,15 @@
+- title "Answers"
+
+%table
+  %tr
+    %th Hipothesis
+    %th Description
+  - for answer in @answers
+    %tr
+      %td= answer.hipothesis
+      %td= answer.description
+      %td= link_to 'Show', answer
+      %td= link_to 'Edit', edit_answer_path(answer)
+      %td= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Answer", new_answer_path

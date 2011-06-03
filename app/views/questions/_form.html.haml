@@ -1,0 +1,12 @@
+= form_for @question do |f|
+  = f.error_messages
+  %p
+    = f.label :facts
+    %br
+    = f.text_field :facts
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description
+  %p
+    = f.submit

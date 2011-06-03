@@ -1,15 +1,31 @@
-= form_for @hypothesis do |f|
+= nested_form_for @hypothesis do |f|
   = f.error_messages
-
+  
+  %p
+    %h2 Fatos
   %p
     = f.fields_for :rule_parts do |rp|
-      = rp.label :fact
-      %br
       = rp.collection_select :fact_id, Fact.all, :id, :description
-      =# rp.collection_select :hypothesis_id, Hypothesis.all, :id, :description
-    %br
+      = rp.link_to_remove "Remover este fato"
+  %p
+    = f.link_to_add "Adicionar um fato", :rule_parts
 
+  %p
+    %h2 Hipótese
   %p
     = f.text_field :description
   %p
+
+  %p
+    %h2 Respostas
+  %p
+    = f.fields_for :answers do |ans|
+      = ans.text_area :description
+      = ans.link_to_remove "Remover resposta"
+  %p
+    = f.link_to_add "Adicionar uma resposta", :answers
+
+  %br
+  %br
+
     = f.submit

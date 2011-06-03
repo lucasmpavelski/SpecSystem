@@ -1,4 +1,8 @@
 SpecSystem::Application.routes.draw do
+  resources :answers
+
+  resources :questions
+
   resources :black_boards
 
   resources :facts

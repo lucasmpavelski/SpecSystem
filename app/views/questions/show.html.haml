@@ -1,0 +1,15 @@
+- title "Question"
+
+%p
+  %strong Facts:
+  =# @question.facts
+%p
+  %strong Description:
+  = @question.description
+
+%p
+  = link_to "Edit", edit_question_path(@question)
+  |
+  = link_to "Destroy", @question, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", questions_path

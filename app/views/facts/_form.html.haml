@@ -1,8 +1,13 @@
-= form_for @fact do |f|
+= nested_form_for @fact do |f|
   = f.error_messages
   %p
     = f.label :description
     %br
     = f.text_field :description
   %p
-    = f.submit
+    = f.fields_for :questions do |question_form| 
+      = question_form.text_area :description
+      = question_form.link_to_remove "Remover esta pergunta"
+  %p
+    = f.link_to_add "Adicionar uma pergunta", :questions
+  = f.submit

@@ -9,7 +9,6 @@ class HypothesesController < ApplicationController
 
   def new
     @hypothesis = Hypothesis.new
-    2.times { @hypothesis.rule_parts.build }
   end
 
   def create

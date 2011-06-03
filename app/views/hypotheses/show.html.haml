@@ -1,17 +1,29 @@
-- title "Hypothesis"
-= debug @hypothesis
-%p
-  %strong Description:
-  = @hypothesis.description
+- title "Hipótese"
 
+%p
+  %h2 Se...
 %p
   %ol
   - for fact in @hypothesis.facts
     %li= fact.description
 
 %p
-  = link_to "Edit", edit_hypothesis_path(@hypothesis)
+  %h2 Então...
+%p
+  = @hypothesis.description
+
+%p
+  %h2 Portanto...
+%p
+  %ol
+  - for ans in @hypothesis.answers
+    %li= ans.description
+
+%br
+
+%p
+  = link_to "Editar", edit_hypothesis_path(@hypothesis)
   |
-  = link_to "Destroy", @hypothesis, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Remover", @hypothesis, :confirm => 'Tem certeza que deseja remover?', :method => :delete
   |
-  = link_to "View All", hypotheses_path
+  = link_to "Ver todas", hypotheses_path
