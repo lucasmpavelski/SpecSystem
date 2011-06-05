@@ -10,11 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602230531) do
+ActiveRecord::Schema.define(:version => 20110605192034) do
 
   create_table "answers", :force => true do |t|
     t.integer  "hypothesis_id"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "aproved_facts", :force => true do |t|
+    t.integer  "guess_id"
+    t.integer  "fact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,15 +32,37 @@ ActiveRecord::Schema.define(:version => 20110602230531) do
     t.datetime "updated_at"
   end
 
+  create_table "guesses", :force => true do |t|
+    t.integer  "hypothesis_id"
+    t.integer  "fact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "hypotheses", :force => true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "counter",     :default => 0
   end
 
   create_table "questions", :force => true do |t|
     t.integer  "fact_id"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rejected_facts", :force => true do |t|
+    t.integer  "guess_id"
+    t.integer  "fact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rejected_hypotheses", :force => true do |t|
+    t.integer  "guess_id"
+    t.integer  "hypothesis_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

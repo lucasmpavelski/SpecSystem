@@ -13,6 +13,13 @@ SpecSystem::Application.routes.draw do
 
   root :to => "black_boards#index"
 
+  match "fact_acception" => "black_boards#fact_acception"
+  match "fact_rejection" => "black_boards#fact_rejection"
+  match "change_question" => "black_boards#change_question"
+
+  match "success" => "black_boards#success"
+  match "fail" => "black_boards#fail"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

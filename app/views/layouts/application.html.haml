@@ -15,7 +15,10 @@
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
+      = link_to "Quadro Negro", root_path
+      |
       = link_to "Hipóteses", hypotheses_path
+      |
       = link_to "Fatos", facts_path
 
       - if show_title?

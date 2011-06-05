@@ -1,3 +1,42 @@
 - title "Black Board"
 
-Hello
+
+%br
+
+= "hipótese: " + @guess.hypothesis.description
+= "fato: " + @guess.fact.description
+
+%br
+
+= @question_number
+
+%p
+  %h2= @guess.fact.questions[@question_number].description
+
+= form_tag fact_acception_path, :method => :get do
+  = hidden_field_tag :guess_id, @guess.id
+  = hidden_field_tag :question_number, @question_number
+  = submit_tag "Sim"
+
+= form_tag fact_rejection_path, :method => :get do
+  = hidden_field_tag :guess_id, @guess.id
+  = hidden_field_tag :question_number, @question_number
+  = submit_tag "Não"
+
+= form_tag change_question_path, :method => :get do
+  = hidden_field_tag :guess_id, @guess.id
+  = hidden_field_tag :question_number, @question_number
+  = submit_tag "Não entendi..."
+
+%p
+  %h2 Fatos aprovados:
+  %ul
+    - for f in @guess.aproved_facts
+      %li= f.fact.description
+%p
+  %h2 Fatos negados:
+  %ul
+    - for f in @guess.rejected_facts
+      %li= f.fact.description
+
+= @dbg
