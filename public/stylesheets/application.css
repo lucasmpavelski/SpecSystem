@@ -59,3 +59,11 @@ a {
     margin: 8px 10px; }
   .error_messages ul {
     margin: 0; }
+
+.conclusion {
+  width: 500px;
+  padding: 20px;
+  background-color: #87CEEB;
+  float: center;
+  border: solid 2px #6A5ACD;
+}

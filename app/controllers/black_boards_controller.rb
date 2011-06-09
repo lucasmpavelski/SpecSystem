@@ -13,22 +13,13 @@ class BlackBoardsController < ApplicationController
     @guess.save
   end
 
-  def avaliate_answer
-    @question_number = params[:question_number].to_i
-    if (params[:answer] == 'y')
-      fact_acception(@guess)
-    elsif (params[:answer] == 'n')
-
-    elsif (params[:answer] == '?')
-      @question_number = @question_number + 1
-      if (@question_number >= @guess.fact.questions.count)
-        @question_number = 0
-      end
+  def change_question
+    @guess = Guess.find(params[:guess_id])
+    @question_number = params[:question_number].to_i + 1
+    if (@question_number >= @guess.fact.questions.count)
+      @question_number = 0
     end
-    # se a resposta é não, 
-    #    escolha outra hipótese e redirecione para provador e limpe perguntas feitas
-    # se a resposta é não sei, escolha outra pergunta e renderize a interface
-
+    render :index
   end
 
   def fact_acception
@@ -47,7 +38,7 @@ class BlackBoardsController < ApplicationController
       end
     end
     if @guess.fact.nil?
-      redirect_to success_path
+      redirect_to :action => 'success', :id => @guess.id
       return
     end
     @guess.save
@@ -67,7 +58,7 @@ class BlackBoardsController < ApplicationController
     rh.save
     @guess.hypothesis = nil
     @guess.fact = nil
-    for h in Hypothesis.all#select(:id).collect { |h| h.id }
+    for h in Hypothesis.find(:all, :order => "counter DESC")
       if !@guess.rejected_hypotheses_ids.include?(h.id)
         ok = true
         for f in h.facts_ids
@@ -87,20 +78,35 @@ class BlackBoardsController < ApplicationController
         end
       end
     end
+    @guess.save
     if @guess.hypothesis.nil?
-      redirect_to fail_path
+      redirect_to :action => 'fail', :id => @guess.id
+      return
+    end
+    if @guess.fact.nil?
+      redirect_to :action => 'success', :id => @guess.id
       return
     end 
-    @guess.save
     render :index
   end
 
-  def prover
-    # verificar se o fato já foi provado
-    #   se ja foi, verificar se todos foram, então redirecionar para conclusao
-    #   senão seelcionar próximo fato
-    # selecionar pergunta
-    # rederizar interface
-    # selecionar fato da hipótese
+  def success
+    @guess = Guess.find(params[:id])
+    @hypothesis = @guess.hypothesis
+    @hypothesis.counter_up
+    @hypothesis.save
+    @aproved_facts = Fact.find(@guess.aproved_facts_ids)
+    @rejected_facts = Fact.find(@guess.rejected_facts_ids)
+    @rejected_hypotheses = Hypothesis.find(@guess.rejected_hypotheses_ids)
+    render :success
   end
+
+  def fail
+    @guess = Guess.find(params[:id])
+    @aproved_facts = Fact.find(@guess.aproved_facts_ids)
+    @rejected_facts = Fact.find(@guess.rejected_facts_ids)
+    @rejected_hypotheses = Hypothesis.find(@guess.rejected_hypotheses_ids)
+    render :fail
+  end
+ 
 end

@@ -1,1 +1,33 @@
-O sistema não concluiu nada.
+
+%br
+%br
+
+.conclusion
+  %p
+    %h3
+      O sistema não concluiu nada.
+
+  %p
+    %h3
+      Fatos aceitos:
+    %ul
+      - for f in @aproved_facts
+        %li= f.description
+
+%br
+
+%p
+  %h3
+    Fatos rejeitados:
+  %ul
+    - for f in @rejected_facts
+      %li= f.description
+
+%br
+
+%p
+  %h3
+    Hipóteses rejeitadas:
+  %ul
+    - for h in @rejected_hypotheses
+      %li= h.description

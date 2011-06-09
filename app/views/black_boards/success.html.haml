@@ -1,1 +1,50 @@
-Hipótese provada!
+
+%br
+%br
+
+.conclusion
+  %p
+    %h3
+      A hipótese
+      = @hypothesis.description
+      foi provada!
+
+  %br
+
+  %p
+    %h3
+      Portanto...
+    %ul
+      - for a in @hypothesis.answers
+        %li= a.description
+
+  %br
+
+%p
+  %h3
+    Fatos aceitos:
+  %ul
+    - for f in @aproved_facts
+      - if @hypothesis.facts.include?(f)
+        %li
+          %b= f.description
+      - else
+        %li= f.description
+
+%br
+
+%p
+  %h3
+    Fatos rejeitados:
+  %ul
+    - for f in @rejected_facts
+      %li= f.description
+
+%br
+
+%p
+  %h3
+    Hipóteses rejeitadas:
+  %ul
+    - for h in @rejected_hypotheses
+      %li= h.description
