@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605192034) do
+ActiveRecord::Schema.define(:version => 20110610000529) do
 
   create_table "answers", :force => true do |t|
     t.integer  "hypothesis_id"
