@@ -4,7 +4,7 @@ class PopulateFacts < ActiveRecord::Migration
       f.questions.build(:description => '')
     end
 
-    Fact.create(:description => 'Principal queixa é pressão ou desconforto torácico') do |f|
+    Fact.create(:description => 'Principal queixa é opressão ou desconforto torácico') do |f|
       f.questions.build(:description => '')
     end
 
@@ -64,10 +64,6 @@ class PopulateFacts < ActiveRecord::Migration
       f.questions.build(:description => '')
     end
 
-    Fact.create(:description => 'Ruídos adventícios podem estar presentes') do |f|
-      f.questions.build(:description => '')
-    end
-
     Fact.create(:description => 'Ruídos adventícios sibilos expiratórios') do |f|
       f.questions.build(:description => '')
     end
@@ -92,10 +88,6 @@ class PopulateFacts < ActiveRecord::Migration
       f.questions.build(:description => '')
     end
 
-    Fact.create(:description => 'Tosse ausente') do |f|
-      f.questions.build(:description => '')
-    end
-
     Fact.create(:description => 'Tosse presente') do |f|
       f.questions.build(:description => '')
     end
@@ -108,19 +100,11 @@ class PopulateFacts < ActiveRecord::Migration
       f.questions.build(:description => '')
     end
 
-    Fact.create(:description => 'Tipo secreção ausente') do |f|
-      f.questions.build(:description => '')
-    end
-
     Fact.create(:description => 'Tipo secreção amarela') do |f|
       f.questions.build(:description => '')
     end
 
     Fact.create(:description => 'Tipo secreção esverdeada, hemoptise, muco viscoso') do |f|
-      f.questions.build(:description => '')
-    end
-
-    Fact.create(:description => 'Dispnéia presente') do |f|
       f.questions.build(:description => '')
     end
 
@@ -133,10 +117,6 @@ class PopulateFacts < ActiveRecord::Migration
     end
 
     Fact.create(:description => 'Sinal esforço respiratório presente') do |f|
-      f.questions.build(:description => '')
-    end
-
-    Fact.create(:description => 'Sinal esforços respiratório ausente') do |f|
       f.questions.build(:description => '')
     end
 
@@ -192,7 +172,7 @@ class PopulateFacts < ActiveRecord::Migration
       f.questions.build(:description => '')
     end
 
-    Fact.create(:description => 'História familiar presente') do |f|
+    Fact.create(:description => 'História familiar presente com frequência') do |f|
       f.questions.build(:description => '')
     end
 
