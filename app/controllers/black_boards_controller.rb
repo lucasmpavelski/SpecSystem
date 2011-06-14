@@ -66,15 +66,15 @@ class BlackBoardsController < ApplicationController
             ok = false
             break
           end
-          if ok
-            for af in h.facts_ids
-              if !@guess.aproved_facts_ids.include?(af)
-                @guess.fact = Fact.find(af)
-              end
+        end
+        if ok
+          for af in h.facts_ids
+            if !@guess.aproved_facts_ids.include?(af)
+              @guess.fact = Fact.find(af)
             end
-            @guess.hypothesis = h
-            break;
           end
+          @guess.hypothesis = h
+          break
         end
       end
     end
