@@ -1,20 +1,20 @@
 class PopulateHypothesis < ActiveRecord::Migration
   def self.up
     Hypothesis.create(:description => 'Atelectasia') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório taquipneico")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo de tórax restritivo")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Expansibilidade pulmonar diminuída")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Murmúrio vesicular ausente")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Característica dispnéia em repouso")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Sinal esforço respiratório presente")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Cirtometria diminuída")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo corporal normal")[0].id)
     end
 
     Hypothesis.create(:description => 'Asma') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é opressão ou desconforto torácico")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Pico de fluxo expiatório diminuido")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório taquipneico")[0].id)
@@ -32,11 +32,11 @@ class PopulateHypothesis < ActiveRecord::Migration
       h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo corporal magro a maioria das vezes")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Início sintomas infância")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "História familiar presente com frequência")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Febre ausente, presente em infecções 2as")[0].id)
     end
 
     Hypothesis.create(:description => 'Bronquite') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Pico de fluxo expiatório diminuido")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório dispneico")[0].id)
@@ -56,7 +56,8 @@ class PopulateHypothesis < ActiveRecord::Migration
     end
 
     Hypothesis.create(:description => 'Enfisema') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Pico de fluxo expiatório diminuido")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório dispneico")[0].id)
@@ -75,9 +76,10 @@ class PopulateHypothesis < ActiveRecord::Migration
     end
   
     Hypothesis.create(:description => 'Fibrose Cística') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é suor salgado")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é dispnéia")[0].id)
+      h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório dispneico")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo de tórax restritivo")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Expansibilidade pulmonar diminuída")[0].id)
@@ -93,7 +95,8 @@ class PopulateHypothesis < ActiveRecord::Migration
     end
 
     Hypothesis.create(:description => 'Derrame pelural') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é dor toraica")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório dispneico")[0].id)
@@ -106,12 +109,12 @@ class PopulateHypothesis < ActiveRecord::Migration
       h.rule_parts.build(:fact_id => Fact.where(:description => "Característica dispnéia em repouso")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Sinal esforço respiratório presente")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Cirtometria diminuída")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo corporal normal")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Febre presente")[0].id)
     end
 
     Hypothesis.create(:description => 'Pneumonia') do |h|
-      h.answers.build(:description => '')
+      h.answers.build(:description => 'Procure um médico')
+      h.answers.build(:description => 'Tome os remédios receitados regularmente')
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é falta de ar")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Principal queixa é mialgia")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Padrão respiratório dispneico")[0].id)
@@ -123,13 +126,13 @@ class PopulateHypothesis < ActiveRecord::Migration
       h.rule_parts.build(:fact_id => Fact.where(:description => "Expectoração presente")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo secreção amarela")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Característica dispnéia em repouso")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Cirtometria normal")[0].id)
-      h.rule_parts.build(:fact_id => Fact.where(:description => "Tipo corporal normal")[0].id)
       h.rule_parts.build(:fact_id => Fact.where(:description => "Febre presente")[0].id)
     end
   end
 
   def self.down
+    RulePart.delete_all
     Hypothesis.delete_all
+    Guess.delete_all
   end
 end

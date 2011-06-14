@@ -1,14 +1,6 @@
-- title "Black Board"
-
-
-%br
-
-= "hipótese: " + @guess.hypothesis.description
-= "fato: " + @guess.fact.description
+- title "Quadro Negro"
 
 %br
-
-= @question_number
 
 %p
   %h2= @guess.fact.questions[@question_number].description
@@ -27,6 +19,15 @@
   = hidden_field_tag :guess_id, @guess.id
   = hidden_field_tag :question_number, @question_number
   = submit_tag "Não entendi..."
+
+%br
+
+%p
+  Hipótese atual:
+  = @guess.hypothesis.description
+%p
+  Fato atual:
+  = @guess.fact.description
 
 %p
   %h2 Fatos aprovados:
